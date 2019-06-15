@@ -1,5 +1,5 @@
 name="Royalist Ideology"
-archive="royalist_ideology.zip"
+archive="mod/Royalist_Ideology_Mod"
 tags={
 	"Ideologies"
 	"Alternative History"
