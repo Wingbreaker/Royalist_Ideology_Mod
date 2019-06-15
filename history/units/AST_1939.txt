@@ -1,6 +1,8 @@
 ﻿division_template = {
 	name = "Infantry Division"			# All divisions except 6th were reserves assigned to various military districts
 										# All but 6th are at reserve levels with low experience, older equipment
+	division_names_group = AST_INF_01
+
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
@@ -22,6 +24,8 @@
 division_template = {
 	name = "Cavalry Division"  			# Reserve divisions (reserve-level, older equipment, low experience)
 
+	division_names_group = AST_CAV_01
+
 	regiments = {
 		cavalry = { x = 0 y = 0 }
 		cavalry = { x = 0 y = 1 }
@@ -33,11 +37,30 @@ division_template = {
 }
 
 
+division_template = {
+	name = "Armoured Division"
+
+	division_names_group = AST_ARM_01
+
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+}
+
+
+
 units = {
 	##### Royal Australian Army #####
 	### 2nd Australian Imperial Force (CO: Blamey) ###
 	division= {	
-		name = "6th Infantry Division"					# CO: Blamey
+		#name = "6th Infantry Division"					# CO: Blamey
+        division_name = {    # New syntax for compatibility with name lists
+            is_name_ordered = yes
+            name_order = 6
+        }
 		location = 12406 # Sydney
 		division_template = "Infantry Division"			# Frontline unit, experienced with latest equip., readying for overseas deployment
 		start_experience_factor = 0.3
@@ -45,7 +68,11 @@ units = {
 	
 	### Home Defense Militia ###
 	division= {	
-		name = "5th Infantry Division"
+		#name = "5th Infantry Division"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 5
+		}
 		location = 1652 # Perth
 		division_template = "Infantry Division"
 		start_experience_factor = 0.2
@@ -53,7 +80,11 @@ units = {
 
 	}
 	division= {	
-		name = "1st Cavalry Division"
+		#name = "1st Cavalry Division"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
 		location = 7564 # Brisbane
 		division_template = "Cavalry Division"
 		start_experience_factor = 0.2
@@ -62,7 +93,11 @@ units = {
 	}
 	# 2nd Military District -- New South Wales
 	division= {	
-		name = "1st Infantry Division"
+		#name = "1st Infantry Division"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
 		location = 12406 # Sydney
 		division_template = "Infantry Division"
 		start_experience_factor = 0.2
@@ -70,7 +105,11 @@ units = {
 
 	}
 	division= {	
-		name = "2nd Infantry Division"
+		#name = "2nd Infantry Division"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 2
+		}
 		location = 7859 # Canberra
 		division_template = "Infantry Division"
 		start_experience_factor = 0.2
@@ -80,7 +119,11 @@ units = {
 
 	# 3rd Military District -- New South Wales
 	division= {	
-		name = "3rd Infantry Division"
+		#name = "3rd Infantry Division"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 3
+		}
 		location = 7798 # Melbourne
 		division_template = "Infantry Division"
 		start_experience_factor = 0.2
@@ -88,7 +131,11 @@ units = {
 
 	}
 	division= {	
-		name = "4th Infantry Division"
+		#name = "4th Infantry Division"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 4
+		}
 		location = 7798 # Melbourne
 		division_template = "Infantry Division"
 		start_experience_factor = 0.2
@@ -96,32 +143,17 @@ units = {
 
 	}
 	division= {	
-		name = "2nd Cavalry Division"
+		#name = "2nd Cavalry Division"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 2
+		}
 		location = 7798 # Melbourne
 		division_template = "Cavalry Division"
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.3
 
 	}
-
-	##### Naval OOB #####
-	navy = {				
-		name = "Australian Squadron"			
-		base = 12406
-		location = 12406 # Sydney
-		ship = { name = "HMAS Canberra" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = AST version_name = "Canberra Class" } }	}
-		ship = { name = "HMAS Australia" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = AST version_name = "Canberra Class" } } }
-		ship = { name = "HMAS Sydney" definition = light_cruiser equipment = { light_cruiser_1 = { amount = 1 owner = AST version_name = "Sydney Class" } } }
-		ship = { name = "HMAS Hobart" definition = light_cruiser equipment = { light_cruiser_1 = { amount = 1 owner = AST version_name = "Sydney Class" } } }
-		ship = { name = "HMAS Perth" definition = light_cruiser equipment = { light_cruiser_1 = { amount = 1 owner = AST version_name = "Sydney Class" } } }
-		ship = { name = "HMAS Adelaide" definition = light_cruiser equipment = { light_cruiser_1 = { amount = 1 owner = AST } } }
-		# Scrap Iron Flotilla
-		ship = { name = "HMAS Stuart" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = AST } } }
-		ship = { name = "HMAS Vampire" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = AST } } }
-		ship = { name = "HMAS Vendetta" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = AST } } }
-		ship = { name = "HMAS Voyager" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = AST } } }
-		ship = { name = "HMAS Waterhen" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = AST } } }
-	}				
 }
 
 air_wings = {

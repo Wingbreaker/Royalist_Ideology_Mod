@@ -15,39 +15,38 @@ set_technology = {
 }
 
 set_politics = {
-
-	parties = {
-		royalist = { 
-			popularity = 1
-		}
-
-		fascism = {
-			popularity = 50
-		}
-
-		democratic = {
-			popularity = 48
-		}
-		
-		communism = {
-			popularity = 1
-		}
-	}
-	
-	ruling_party = democratic
+	ruling_party = neutrality
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
 
-set_national_unity = 0.50
+set_popularities = {
+	neutrality = 48
+	fascism = 50
+	democratic = 1
+	communism = 1
+}
+
+set_stability = 0.50
 
 create_country_leader = {
 	name = "Kurt Schuschnigg"
 	desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
-	picture = "gfx/leaders/AUS/Portrait_AUS_Kurt.dds"
+	picture = "Portrait_Austria_Kurt_Schuschnigg.dds"
 	expire = "1965.1.1"
-	ideology = conservatism
+	ideology = centrism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Karl Renner"
+	desc = "POLITICS_KARL_RENNER_DESC"
+	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+	expire = "1965.1.1"
+	ideology = socialism
 	traits = {
 		#
 	}
@@ -56,7 +55,7 @@ create_country_leader = {
 create_country_leader = {
 	name = "Arthur Seyss-Inquart"
 	desc = "POLITICS_ARTHUR_SEYSS_INQUART_DESC"
-	picture = "gfx/leaders/AUS/Portrait_AUS_Arthur.dds"
+	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
 	expire = "1965.1.1"
 	ideology = nazism
 	traits = {
@@ -67,20 +66,9 @@ create_country_leader = {
 create_country_leader = {
 	name = "Alfred Klahr"
 	desc = "POLITICS_ALFRED_KLAHR_DESC"
-	picture = "gfx/leaders/AUS/Portrait_AUS_Alfred.dds"
+	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
 	expire = "1965.1.1"
 	ideology = marxism
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Kaiser Otto von Habsburg"
-	desc = "POLITICS_ALFRED_KLAHR_DESC"
-	picture = "gfx/leaders/AUS/Portrait_AUS_Otto.dds"
-	expire = "1965.1.1"
-	ideology = absolution
 	traits = {
 		#
 	}
@@ -91,4 +79,8 @@ create_corps_commander = {
 	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_2.dds"
 	traits = { trait_mountaineer trickster }
 	skill = 3
+	attack_skill = 2
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 2
 }

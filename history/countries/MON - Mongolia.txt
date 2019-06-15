@@ -49,8 +49,6 @@ add_ideas = {
 		basic_machine_tools = 1
 		improved_machine_tools = 1
 		advanced_machine_tools = 1
-		synth_oil_experiments = 1
-		oil_plant = 1
 		construction1 = 1
 		construction2 = 1
 		concentrated_industry = 1
@@ -59,34 +57,19 @@ add_ideas = {
 }
 
 set_politics = {
-
-	parties = {
-		democratic = { 
-			popularity = 0
-			banned = yes
-		}
-
-		fascism = {
-			popularity = 0
-			banned = yes
-		}
-		
-		communism = {
-			popularity = 100
-			#banned = no #default is no
-		}
-	}
-	
 	ruling_party = communism
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
+set_popularities = {
+	communism = 100
+}
 
 create_country_leader = {
 	name = "Anandyn Amar"
 	desc = "POLITICS_ANANDYN_AMAR_DESC"
-	picture = "gfx/leaders/Asia/Portrait_Asia_Generic_1.dds"
+	picture = GFX_portrait_mon_anandyn_amar
 	expire = "1965.1.1"
 	ideology = marxism
 	traits = {
@@ -95,34 +78,8 @@ create_country_leader = {
 }
 
 1939.1.1 = {
-
 	add_ideas = {
-	limited_conscription
-	}	
-
-	set_politics = {
-
-		parties = {
-			democratic = { 
-				popularity = 0
-				banned = yes
-			}
-
-			fascism = {
-				popularity = 0
-				banned = yes
-			}
-			
-			communism = {
-				popularity = 100
-				#banned = no #default is no
-			}
-		}
-		
-		ruling_party = communism
-		last_election = "1936.1.1"
-		election_frequency = 48
-		elections_allowed = no
+		limited_conscription
 	}
 
 	create_country_leader = {

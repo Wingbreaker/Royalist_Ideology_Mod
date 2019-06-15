@@ -33,11 +33,12 @@ ideologies = {
 			can_lower_tension = yes
 			can_only_justify_war_on_threat_country = yes
 			can_guarantee_other_ideologies = yes
-			can_occupy_non_war = no
 		}
 		
-		war_impact_on_world_tension = -1.0
-		faction_impact_on_world_tension = -0.1
+		can_host_government_in_exile = yes
+		
+		war_impact_on_world_tension = 0.25		# no major danger, remember this this the 40s!
+		faction_impact_on_world_tension = 0.1
 		
 		modifiers = {
 			generate_wargoal_tension = 1.00
@@ -95,7 +96,6 @@ ideologies = {
 			can_force_government = no
 			can_send_volunteers = yes
 			can_puppet = yes
-			can_occupy_non_war = yes
 		}
 		
 		modifiers = {
@@ -120,9 +120,6 @@ ideologies = {
 			
 			falangism = {
 			}
-
-                        authoritarian = {
-                        }
 			
 			rexism = {
 			}
@@ -145,7 +142,6 @@ ideologies = {
 			can_force_government = no
 			can_send_volunteers = yes
 			can_puppet = yes
-			can_occupy_non_war = no
 		}
 		
 		modifiers = {
@@ -155,41 +151,50 @@ ideologies = {
 		ai_fascist = yes # uses the fascist AI behaviour
 	}
 	
-	royalist = {
+	neutrality = {
 	
 		types = {
 		
-			constitutional  = {
+			despotism  = {
 			}
 			
-			absolution  = {
+			oligarchism  = {
+			}
+			
+			moderatism = {
+			}
+			
+			centrism = {
 			}
 		}
 
 		dynamic_faction_names = {
-			"FACTION_NAME_ROYALIST_1"
-			"FACTION_NAME_ROYALIST_2"
-			"FACTION_NAME_ROYALIST_3"
-			"FACTION_NAME_ROYALIST_4"
-			"FACTION_NAME_ROYALIST_5"
+			"FACTION_NAME_NONALIGNED_1"
+			"FACTION_NAME_NONALIGNED_2"
+			"FACTION_NAME_NONALIGNED_3"
+			"FACTION_NAME_NONALIGNED_4"
+			"FACTION_NAME_NONALIGNED_5"
 		}
 		
-		color = { 242 183 34 }
+		color = { 124 124 124 }
 		
 		
-		war_impact_on_world_tension = 0.1		
+		war_impact_on_world_tension = 0.25		#no major danger
 		faction_impact_on_world_tension = 0.1
 		
 		rules = {
-			can_force_government = yes
+			can_force_government = no
 			can_puppet = yes
-			can_send_volunteers = yes
-                        can_occupy_non_war = yes
-                        can_guarantee_other_ideologies = yes
+			can_send_volunteers = no
 		}
 		
 		modifiers = {
-			join_faction_tension = 0.2
+			#increased_influence_factor = 0.3 #30% easier to influence
+			generate_wargoal_tension = 0.5
+			join_faction_tension = 0.4
+			lend_lease_tension = 0.4
+			send_volunteers_tension = 0.4
+			guarantee_tension = 0.4
 			drift_defence_factor = -0.3	
 		}
 		
@@ -197,7 +202,8 @@ ideologies = {
 		}
 
 		can_be_boosted = no
+		can_collaborate = yes
 
-		ai_royalist = yes # 
+		ai_neutral = yes # 
 	}
 }

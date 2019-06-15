@@ -48,9 +48,6 @@ set_convoys = 5
 		basic_machine_tools = 1
 		improved_machine_tools = 1
 		advanced_machine_tools = 1
-		synth_oil_experiments = 1
-		oil_plant = 1
-		improved_oil_plant = 1
 		construction1 = 1
 		construction2 = 1
 		dispersed_industry = 1
@@ -60,36 +57,22 @@ set_convoys = 5
 
 
 set_politics = {
-
-	parties = {
-		democratic = { 
-			popularity = 25
-		}
-
-		fascism = {
-			popularity = 20
-		}
-		
-		communism = {
-			popularity = 5
-			#banned = no #default is no
-		}
-		
-		royalist= { 
-			popularity = 50
-		}
-	}
-	
-	ruling_party = democratic
+	ruling_party = neutrality
 	last_election = "1936.1.1"
 	election_frequency = 48
-	elections_allowed = yes
+	elections_allowed = no
+}
+set_popularities = {
+	democratic = 25
+	fascism = 20
+	communism = 5
+	neutrality = 50
 }
 
 create_country_leader = {
 	name = "Hashim Kheir"
 	desc = ""
-	picture = "gfx/leaders/JOR/Portrait_Arabia_Generic_3.dds"
+	picture = "gfx/leaders/JOR/Portrait_Arabia_Generic_2.dds"
 	ideology = conservatism
 	traits = {
 		#
@@ -99,7 +82,7 @@ create_country_leader = {
 create_country_leader = {
 	name = "Saeed Ahmadi"
 	desc = ""
-	picture = "gfx/leaders/JOR/Portrait_Arabia_Generic_1.dds"
+	picture = "gfx/leaders/JOR/Portrait_Arabia_Generic_fascism1.dds"
 	ideology = fascism_ideology
 	traits = {
 		#
@@ -109,7 +92,7 @@ create_country_leader = {
 create_country_leader = {
 	name = "Abdullah bin al-Hussein"
 	desc = ""
-	picture = "gfx/leaders/JOR/Portrait_Arabia_Generic_1.dds"
+	picture = "gfx/leaders/JOR/Portrait_Arabia_Generic_land_3.dds"
 	ideology = despotism
 	traits = {
 		#
@@ -119,7 +102,7 @@ create_country_leader = {
 create_country_leader = {
 	name = "Fu'ad Nassar"
 	desc = ""
-	picture = "gfx/leaders/JOR/Portrait_Arabia_Generic_3.dds"
+	picture = "gfx/leaders/JOR/Portrait_Arabia_Generic_navy_2.dds"
 	ideology = leninism
 	traits = {
 		#

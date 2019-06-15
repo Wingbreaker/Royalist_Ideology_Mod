@@ -60,9 +60,7 @@ set_convoys = 10
 		basic_machine_tools = 1
 		improved_machine_tools = 1
 		advanced_machine_tools = 1
-		synth_oil_experiments = 1
-		oil_plant = 1
-		improved_oil_plant = 1
+		fuel_silos = 1
 		construction1 = 1
 		construction2 = 1
 		dispersed_industry = 1
@@ -71,64 +69,34 @@ set_convoys = 10
 }
 
 set_politics = {
-
-	parties = {
-		democratic = { 
-			popularity = 30
-		}
-
-		fascism = {
-			popularity = 15
-		}
-		
-		communism = {
-			popularity = 15
-		}
-		
-		royalist = { 
-			popularity = 50
-		}
-	}
-	
-	ruling_party = royalist
+	ruling_party = neutrality
 	last_election = "1926.5.8"
 	election_frequency = 120
 	elections_allowed = no
 }
+set_popularities = {
+	democratic = 30
+	fascism = 15
+	communism = 15
+	neutrality = 40
+}
 
 1939.1.1 = {
 	set_politics = {
-
-		parties = {
-			democratic = { 
-				popularity = 30
-			}
-
-			fascism = {
-				popularity = 15
-			}
-			
-			communism = {
-				popularity = 15
-			}
-			
-			royalist = { 
-				popularity = 50
-			}
-		}
-		
-		ruling_party = royalist
+		ruling_party = neutrality
 		last_election = "1936.6.10"
 		election_frequency = 120
 		elections_allowed = no
 	}
 }
+
 create_country_leader = {
-	name = "Karalius Antanas Smetona"
+	name = "Antanas Smetona"
 	desc = "POLITICS_ANTANAS_SMETONA_DESC"
-	picture = "gfx/leaders/LIT/Portrait_LIT_Smetona.dds"
+	picture = "GFX_Portrait_lithuania_antanas_smetona"
 	expire = "1965.1.1"
-	ideology = absolution	traits = {
+	ideology = oligarchism
+	traits = {
 		#
 	}
 }
@@ -136,7 +104,7 @@ create_country_leader = {
 create_country_leader = {
 	name = "Antanas Snieckus"
 	desc = "POLITICS_ANTANAS_SNIECKUS_DESC"
-	picture = "gfx/leaders/LIT/Portrait_LIT_Snieckus.dds"
+	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_1.dds"
 	expire = "1965.1.1"
 	ideology = stalinism
 	traits = {
@@ -144,36 +112,13 @@ create_country_leader = {
 	}
 }
 
-
 create_country_leader = {
 	name = "Augustinas Voldemaras"
 	desc = ""
-	picture = "gfx/leaders/LIT/Portrait_LIT_Voldemaras.dds"
+	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
 	expire = "1965.1.1"
 	ideology = fascism_ideology
 	traits = {
-		#
-	}
-
-}
-
-create_country_leader = {
-	name = "Aleksandras Stulginskis"
-	desc = ""
-	picture = "gfx/leaders/LIT/Portrait_LIT_Stulginskis.dds"
-	expire = "1965.1.1"
-	ideology = conservatism
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "King Antanas Smetona"
-	desc = ""
-	picture = "gfx/leaders/LIT/Portrait_LIT_Smetona.dds"
-	expire = "1965.1.1"
-	ideology = royalist	traits = {
 		#
 	}
 }

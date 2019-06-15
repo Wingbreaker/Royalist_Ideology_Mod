@@ -23,12 +23,12 @@ country_event = {
 		add_tech_bonus = {
 			name = tizard_mission_focus
 			uses = 1
-			bonus = 0.5
+			bonus = 1.0
 			category = light_fighter
 		}
 		add_tech_bonus = {
 			name = tizard_mission_focus
-			bonus = 0.5
+			bonus = 1.0
 			uses = 2
 			category = radar_tech
 		}
@@ -41,6 +41,21 @@ country_event = {
 		ENG = {
 			country_event = { days = 1 id = britain.3 }
 		}
+	}
+
+	option = {
+		name = britain.1.c	#tech_sharing
+		trigger = { has_dlc = "Together for Victory"}
+		ai_chance = { factor = 90 }
+		add_political_power = -10
+		ENG = {
+			country_event = { days = 1 id = britain.21 }
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = tizard_relations
+			}
+		}
+		add_to_tech_sharing_group = tizard_mission
 	}
 }
 
@@ -57,12 +72,12 @@ country_event = {
 		name = britain.2.a
 		add_tech_bonus = {
 			name = tizard_mission_focus
-			bonus = 0.5
+			bonus = 1.0
 			category = light_fighter
 		}
 		add_tech_bonus = {
 			name = tizard_mission_focus
-			bonus = 0.5
+			bonus = 1.0
 			uses = 2
 			category = radar_tech
 		}
@@ -140,7 +155,8 @@ country_event = {
 	option = {
 		name = britain.6.b
 		RAJ = {
-			add_national_unity = -0.30
+			add_stability = -0.3
+			add_war_support = -0.2
 		}
 	}
 }
@@ -218,28 +234,51 @@ country_event = {
 	trigger = {
 		tag = ENG
 		has_war = yes
+		has_government = democratic
 		NOT = {
 			has_completed_focus = uk_scandinavian_focus
 		}
+		POL = { has_capitulated = yes }
 		OR = {
 			has_global_flag = fall_of_france
-			surrender_progress > 0.5
+			FRA = { surrender_progress > 0.1 }
+			HOL = { surrender_progress > 0.1 }
+			BEL = { surrender_progress > 0.1 }
+			LUX = { surrender_progress > 0.1 }
+			DEN = { surrender_progress > 0.1 }
+			NOR = { surrender_progress > 0.1 }
 			AND = {
 				110 = { is_controlled_by = GER }
 				NOT = { is_in_faction_with = GER }
 			}
 		}
+		NOT = { has_country_flag = chamberlain_died }
+		has_country_leader = {
+			name = "Neville Chamberlain"
+			ruling_only = yes
+		}
 	}
 
 	mean_time_to_happen = {
-		days = 40
+		days = 2
 	}
+
+	immediate = { set_country_flag = chamberlain_resigned }
 	
 	option = {
 		name = britain.9.a
-		retire_country_leader = yes
-		add_national_unity = 0.1
-		set_country_flag = chamberlain_resigned
+		create_country_leader = {
+			name = "Winston Churchill"
+			desc = "POLITICS_WINSTON_CHURCHILL_DESC"
+			picture = "Portrait_Britain_Winston_Churchill.dds"
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {
+				british_bulldog
+			}
+		}
+		add_stability = 0.1
+		add_war_support = 0.1
 	}
 }
 
@@ -258,15 +297,31 @@ country_event = {
 		has_government = democratic
 		date > 1940.9.11
 		NOT = { has_country_flag = chamberlain_resigned }
-	}
+		has_country_leader = {
+			name = "Neville Chamberlain"
+			ruling_only = yes
+		}
+	}	
 
 	mean_time_to_happen = {
 		days = 30
 	}
 	
+	immediate = { set_country_flag = chamberlain_died }
+
 	option = {
 		name = britain.10.a
 		kill_country_leader = yes
+		create_country_leader = {
+			name = "Winston Churchill"
+			desc = "POLITICS_WINSTON_CHURCHILL_DESC"
+			picture = "Portrait_Britain_Winston_Churchill.dds"
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {
+				british_bulldog
+			}
+		}
 	}
 	option = {
 		name = britain.10.b
@@ -298,9 +353,9 @@ country_event = {
 	
 	option = {
 		name = britain.11.a
-		every_country = {
+		add_war_support = 0.1
+		every_other_country = {
 				limit = {
-					NOT = { tag = ENG }
 					NOT = { has_war_with = ENG }
 					is_in_faction = no
 					has_government = democratic
@@ -336,7 +391,15 @@ country_event = {
 	
 	option = {
 		name = britain.12.a
+		add_war_support = 0.1 #glorious crusade to free Europe from commienazi menace
 		ENG = { add_to_faction = ROOT }
+		ROOT = {
+			add_ai_strategy = {
+				type = alliance
+				id = "ENG"
+				value = 200
+			}
+		}
 	}
 	
 	option = {
@@ -357,6 +420,13 @@ country_event = {
 	option = {
 		name = britain.13.a
 		add_to_faction = FROM
+		FROM = {
+			add_ai_strategy = {
+				type = alliance
+				id = "ENG"
+				value = 200
+			}
+		}
 		FROM = { country_event = { id = france.29} }
 		hidden_effect = {
 			news_event = { id = news.175 }
@@ -391,10 +461,42 @@ country_event = {
 	option = { # Abandon Yugoalvia
 		name = britain.14.a
 		ai_chance = { factor = 90 }
-		FRA = { country_event = { id = france.25 hours = 2 } }
 		YUG = {
 			add_opinion_modifier = { target = ENG modifier = western_betrayal }
 		}		
+		if = {
+			limit = {
+				country_exists = FRA
+			}
+			FRA = { country_event = { id = france.25 hours = 2 } }
+		}
+		else = {
+			if = {
+				limit = {
+					ITA = {
+						OR = {
+							NOT = { has_completed_focus = ITA_yugoslavia_friend }						
+							is_in_faction_with = GER
+							exists = no
+						}
+					}
+				}
+				YUG = {
+					add_opinion_modifier = { target = FRA modifier = western_betrayal }
+					country_event = { id = yugoslavia.5 hours = 6 }
+				}			
+			}
+			if = {
+				limit = { 
+					ITA = {
+						has_completed_focus = ITA_yugoslavia_friend
+						NOT = { is_in_faction_with = GER }
+						NOT = { has_war_with = YUG }
+					}
+				}
+				ITA = { country_event = { id = italy.12 } }
+			}
+		}
 	}
 	
 	option = { # Support Yugoslavia
@@ -421,6 +523,7 @@ country_event = {
 			GER = { remove_from_faction = ENG }
 		}
 		add_political_power = -200
+		add_stability = -0.05
 		add_opinion_modifier = { target = GER modifier = condemn_aggression }
 		effect_tooltip = {
 			GER = {
@@ -432,6 +535,13 @@ country_event = {
 			}
 		}
 		add_to_faction = YUG
+		YUG = {
+			add_ai_strategy = {
+				type = alliance
+				id = "ENG"
+				value = 200
+			}
+		}
 		if = {
 			limit = {
 				FRA = {
@@ -474,6 +584,7 @@ country_event = {
 	trigger = {
 		tag = ENG
 		date > 1936.1.19
+		has_start_date < 1936.01.02
 	}	
 
 	fire_only_once = yes
@@ -482,7 +593,6 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-                        kill_country_leader = yes
 			set_country_flag = ENG_king_died
 			remove_ideas = george_v
 			add_ideas = ENG_king_edward
@@ -491,7 +601,6 @@ country_event = {
 	
 	option = {
 		name = britain.16.a
-
 		effect_tooltip = {
 			remove_ideas = george_v		
 			add_ideas = ENG_king_edward
@@ -510,6 +619,7 @@ country_event = {
 		tag = ENG
 		has_country_flag = ENG_king_died
 		date > 1936.12.1
+		NOT = { has_dlc = "Man the Guns" }
 	}
 	
 	fire_only_once = yes
@@ -518,7 +628,6 @@ country_event = {
 	
 	immediate = {
 		hidden_effect = {
-                        kill_country_leader = yes
 			remove_ideas = ENG_king_edward
 			add_ideas = ENG_george_vi		
 		}
@@ -544,6 +653,7 @@ country_event = {
 		tag = ENG
 		has_idea = ENG_george_vi
 		has_government = fascism
+		NOT = { has_dlc = "Man the Guns" }
 	}
 	
 	fire_only_once = yes
@@ -564,13 +674,21 @@ country_event = {
 		create_country_leader = {
 			name = "Edward VIII"
 			desc = "POLITICS_EDWARD_EDWARD_DESC"
-			picture = "Portrait_ENG_Edward_VIII.dds"
+			picture = "Portrait_Britain_Edward_VIII.dds"
 			expire = "1965.1.1"
-			ideology = nazism
+			ideology = fascism_ideology
 			traits = {
 				inexperienced_imperialist				
 			}
 		}
+	}
+
+	option = {
+		name = britain.18.b	
+		effect_tooltip = {
+			remove_ideas = ENG_george_vi	
+		}
+		add_ideas = ENG_king_edward_fascism
 	}
 }
 
@@ -592,7 +710,7 @@ country_event = {
 		}
 		custom_effect_tooltip = ENG_RAJ_azad_hind_tooltip 
 		hidden_effect = {
-			country_event = { id = britain.19 days = 500  random = 100 }
+			country_event = { id = britain.20 days = 500  random = 100 }
 		}
 	}
 }
@@ -620,11 +738,208 @@ country_event = {
 
 	option = {
 		name = britain.20.a
-		RAJ = {
-			start_civil_war = {
-				ideology = fascism
-				size = 0.5
+		hidden_effect = {
+			if = {
+				limit = {
+					RAJ = {
+						has_idea = RAJ_azad_hind
+					}
+				}
+				RAJ = {
+					remove_ideas = RAJ_azad_hind
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					RAJ = {
+						has_government = fascism
+					}
+				}
+			}
+			RAJ = {
+				country_event = { id = britain.23 }
+			}
+		}
+		
+		if = {
+			limit = {
+				RAJ = {
+					has_government = fascism
+				}
+			}
+			end_puppet = RAJ
+			if = {
+				limit = {
+					RAJ = {
+						is_in_faction_with = ENG
+					}
+				}
+				remove_from_faction = RAJ
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = RAJ
 			}
 		}
 	}
+
+}
+
+country_event = {
+	id = britain.21
+	title = britain.21.t
+	desc = britain.21.d
+	picture = GFX_report_event_physics_lab_02
+
+	is_triggered_only = yes
+	
+	option = {
+		name = britain.21.a
+		add_to_tech_sharing_group = tizard_mission
+		USA = {
+			add_opinion_modifier = { target = ENG modifier = tizard_relations }
+		}
+	}
+}
+
+# Stanley Baldwin Resigns
+country_event = {
+    id = britain.22
+    title = britain.22.t
+    desc = britain.22.d
+    picture = GFX_report_event_royal_parade
+ 
+    fire_only_once = yes
+ 
+    trigger = {
+        original_tag = ENG
+        has_government = democratic
+        has_idea = ENG_george_vi
+        date > 1937.5.27
+        has_start_date < 1936.01.02
+        NOT = { has_country_flag = baldwin_resigned }
+    }
+
+    mean_time_to_happen = {
+        days = 7
+    }
+
+    option = {
+        name = britain.22.a
+        retire_country_leader = yes
+        create_country_leader = {
+        	name = "Neville Chamberlain"
+        	desc = "POLITICS_NEVILLE_CHAMBERLAIN_DESC"
+        	picture = "Portrait_Britain_Neville_Chamberlain.dds"
+        	expire = "1965.1.1"
+        	ideology = conservatism
+        	traits = {
+        		chamberlain_appeaser rearmer
+        	}
+        }
+        set_country_flag = baldwin_resigned
+      }
+}
+
+#RAJ gets to choose sides in Indian civil war
+country_event = {
+	id = britain.23
+	title = britain.23.t
+	desc = britain.23.d
+	picture = GFX_report_event_indian_soldiers
+
+	is_triggered_only = yes
+	
+	#side with government
+	option = {
+		ai_chance = {
+			factor = 100
+			modifier = {
+				has_government = fascism
+				factor = 0
+			}
+		}
+		name = britain.23.a
+		start_civil_war = {
+				ideology = fascism
+				size = 0.5
+		}
+	}
+	#side with fascists
+	option = {
+		name = britain.23.b
+		start_civil_war = {
+				ruling_party = fascism
+				ideology = neutrality
+				size = 0.5
+		}
+		random_other_country = {
+			limit = {
+				original_tag = RAJ
+				has_government = neutrality
+				is_puppet_of = ENG
+			}
+			set_cosmetic_tag = RAJ_UK
+		}
+	}
+}
+
+# Shadow Scheme Factories
+country_event = {
+    id = britain.24
+    title = britain.24.t
+    desc = britain.24.d
+    picture = GFX_report_event_generic_factory
+ 
+    fire_only_once = yes
+ 
+    trigger = {
+        original_tag = ENG
+        has_completed_focus = shadow_scheme_focus
+        has_war = yes
+    }
+
+    mean_time_to_happen = {
+        days = 7
+    }
+
+    option = {
+        name = britain.24.a
+        random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				free_building_slots = {
+					building = arms_factory
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+			set_state_flag = shadow_scheme_2AF
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				free_building_slots = {
+					building = arms_factory
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+			set_state_flag = shadow_scheme_2AF
+		}
+    }
 }

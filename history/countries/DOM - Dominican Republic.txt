@@ -8,7 +8,7 @@ set_technology = {
 	gw_artillery = 1
 }
 set_country_flag = monroe_doctrine
-
+set_war_support = 0.1
 set_convoys = 5
 
 1939.1.1 = {
@@ -49,8 +49,7 @@ set_convoys = 5
 		basic_machine_tools = 1
 		improved_machine_tools = 1
 		advanced_machine_tools = 1
-		synth_oil_experiments = 1
-		oil_plant = 1
+		fuel_silos = 1
 		construction1 = 1
 		construction2 = 1
 		dispersed_industry = 1
@@ -59,32 +58,19 @@ set_convoys = 5
 }
 
 set_politics = {
-
-	parties = {
-		democratic = { 
-			popularity = 0
-		}
-
-		fascism = {
-			popularity = 100
-		}
-		
-		communism = {
-			popularity = 0
-			#banned = no #default is no
-		}
-	}
-	
 	ruling_party = fascism
 	last_election = "1934.5.16"
 	election_frequency = 48
 	elections_allowed = no
 }
+set_popularities = {
+	fascism = 100
+}
 
 create_country_leader = {
 	name = "Rafael Trujillo"
 	desc = "POLITICS_RAFAEL_TRUJILLO_DESC"
-	picture = "gfx/leaders/South America/Portrait_South_America_Generic_3.dds"
+	picture = "GFX_portrait_dominca_rafael_trujillo"
 	expire = "1965.1.1"
 	ideology = fascism_ideology
 	traits = {
@@ -93,29 +79,6 @@ create_country_leader = {
 }
 
 1939.1.1 = {
-	set_politics = {
-
-		parties = {
-			democratic = { 
-				popularity = 0
-			}
-
-			fascism = {
-				popularity = 100
-			}
-			
-			communism = {
-				popularity = 0
-				#banned = no #default is no
-			}
-		}
-		
-		ruling_party = fascism
-		last_election = "1934.5.16"
-		election_frequency = 48
-		elections_allowed = no
-	}
-
 	create_country_leader = {
 		name = "Jacinto Peynado"
 		desc = "POLITICS_JACINTO_PEYNADO_DESC"

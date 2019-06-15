@@ -48,9 +48,6 @@ set_convoys = 5
 		basic_machine_tools = 1
 		improved_machine_tools = 1
 		advanced_machine_tools = 1
-		synth_oil_experiments = 1
-		oil_plant = 1
-		improved_oil_plant = 1
 		construction1 = 1
 		construction2 = 1
 		dispersed_industry = 1
@@ -60,32 +57,21 @@ set_convoys = 5
 
 
 set_politics = {
-
-	parties = {
-		democratic = { 
-			popularity = 40
-		}
-
-		fascism = {
-			popularity = 30
-		}
-		
-		communism = {
-			popularity = 30
-			#banned = no #default is no
-		}
-	}
-	
 	ruling_party = democratic
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = yes
 }
+set_popularities = {
+	democratic = 40
+	fascism = 30
+	communism = 30
+}
 
 create_country_leader = {
 	name = "Ahmed Hilmi Pasha"
 	desc = ""
-	picture = "gfx/leaders/PAL/Portrait_Arabia_Generic_2.dds"
+	picture = "gfx/leaders/PAL/Portrait_Arabia_Generic_navy_1.dds"
 	ideology = liberalism
 	traits = {
 		#
@@ -95,7 +81,7 @@ create_country_leader = {
 create_country_leader = {
 	name = "Amin al-Husseini"
 	desc = ""
-	picture = "gfx/leaders/PAL/Portrait_Arabia_Generic_1.dds"
+	picture = "gfx/leaders/PAL/Portrait_Arabia_Generic_land_2.dds"
 	ideology = fascism_ideology
 	traits = {
 		#

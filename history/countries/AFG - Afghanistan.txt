@@ -49,9 +49,7 @@ set_technology = {
 		basic_machine_tools = 1
 		improved_machine_tools = 1
 		advanced_machine_tools = 1
-		synth_oil_experiments = 1
-		oil_plant = 1
-		improved_oil_plant = 1
+		fuel_silos = 1
 		construction1 = 1
 		construction2 = 1
 		dispersed_industry = 1
@@ -60,37 +58,23 @@ set_technology = {
 }
 
 set_politics = {
-
-	parties = {
-		democratic = { 
-			popularity = 0
-		}
-
-		fascism = {
-			popularity = 15
-		}
-		
-		communism = {
-			popularity = 10
-			#banned = no #default is no
-		}
-		
-		royalist = { 
-			popularity = 75
-		}
-	}
-	
-	ruling_party = royalist
+	ruling_party = neutrality
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = no
+}
+
+set_popularities = {
+	fascism = 15
+	communism = 10
+	neutrality = 75
 }
 
 # Mohammad Hashim Khan (Prime Minister) other potential candidate
 create_country_leader = {
 	name = "Mohammed Zahir Shah"
 	desc = "POLITICS_MOHAMMED_ZAHIR_SHAH_DESC"
-	picture = "gfx/leaders/SAU/Portrait_Arabia_Generic_2.dds"
+	picture = "Portrait_Afghanistan_Mohammed_Zahir_Shah.dds"
 	expire = "1965.1.1"
 	ideology = despotism
 	traits = {
@@ -100,36 +84,25 @@ create_country_leader = {
 
 1939.1.1 = {
 	set_politics = {
-
-		parties = {
-			democratic = { 
-				popularity = 0
-			}
-
-			fascism = {
-				popularity = 20
-			}
-			
-			communism = {
-				popularity = 10
-				#banned = no #default is no
-			}
-		
-			royalist = { 
-				popularity = 75
-			}
-		}
-	
-		ruling_party = royalist
+		ruling_party = neutrality
 		last_election = "1936.1.1"
 		election_frequency = 48
 		elections_allowed = no
+	}
+	set_popularities = {
+		fascism = 20
+		communism = 10
+		neutrality = 70
 	}
 }
 
 create_corps_commander = {
 	name = "Sardar Shah Wali Khan"
-	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
+	portrait_path = "gfx/leaders/SAU/Portrait_Arabia_Generic_land_3.dds"
 	traits = { desert_fox }
-	skill = 5
+	skill = 4
+	attack_skill = 5
+	defense_skill = 2
+	planning_skill = 3
+	logistics_skill = 3
 }

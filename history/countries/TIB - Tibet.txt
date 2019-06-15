@@ -1,4 +1,4 @@
-﻿capital = 322
+﻿capital = 757
 
 oob = "TIB_1936"
 
@@ -40,7 +40,6 @@ set_technology = {
 		#industry
 		basic_machine_tools = 1
 		improved_machine_tools = 1
-		synth_oil_experiments = 1
 		construction1 = 1
 		construction2 = 1
 		dispersed_industry = 1
@@ -49,30 +48,13 @@ set_technology = {
 }
 
 set_politics = {
-
-	parties = {
-		democratic = { 
-			popularity = 0
-		}
-
-		fascism = {
-			popularity = 0
-		}
-		
-		communism = {
-			popularity = 0
-			#banned = no #default is no
-		}
-		
-		royalist = { 
-			popularity = 100
-		}
-	}
-	
-	ruling_party = royalist
+	ruling_party = neutrality
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = no
+}
+set_popularities = {
+	neutrality = 100
 }
 
 create_country_leader = {
@@ -83,34 +65,5 @@ create_country_leader = {
 	ideology = despotism
 	traits = {
 		#
-	}
-}
-
-1939.1.1 = {
-	set_politics = {
-
-		parties = {
-		democratic = { 
-			popularity = 0
-		}
-
-		fascism = {
-			popularity = 0
-		}
-		
-		communism = {
-			popularity = 0
-			#banned = no #default is no
-		}
-		
-		royalist = { 
-			popularity = 100
-		}
-	}
-	
-	ruling_party = royalist
-		last_election = "1936.1.1"
-		election_frequency = 48
-		elections_allowed = no
 	}
 }

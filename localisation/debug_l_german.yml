@@ -1,5 +1,5 @@
 ﻿l_german:
- debug_event_scopes:0 "Umfang - Quelle: [Root.GetName] Von: [From.GetName] Vorher: [Prev.GetName]"
+ debug_event_scopes:0 ""
  print_scope_names:0 "Umfang - Quelle: [Root.GetName] Von: [From.GetName] Vorher: [Prev.GetName]"
  faction_created_names:0 "Bündnis gegründet – Quelle: [Root.GetName] Vorher: [Prev.GetName]"
  faction_joined_names:0 "Bündnis beigetreten – Quelle: [Root.GetName] Vorher: [Prev.GetName]"
@@ -10,3 +10,7 @@
  test.2.a:0 "Test Event 2"
  test.3.t:0 "Test Event 3"
  test.3.a:0 "Test Event 3"
+ test.4.t:0 "Test Event 4"
+ test.4.d:0 "Scopes - Root: [Root.GetName] From: [From.From.GetName]  Prev: [Prev.GetName]"
+ test.4.a:0 "Test Event 4"
+ TEST_FEST_FEMTEN:0 "lalallalalalal"

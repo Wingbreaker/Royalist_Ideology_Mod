@@ -19,11 +19,11 @@ country_event = {
 			modifier = {
 				factor = 0
 				OR = {
-					any_country = {
+					any_other_country = {
 
 						has_guaranteed = GRE
 					}
-					any_country = {
+					any_other_country = {
 
 						is_in_faction_with = GRE
 					}
@@ -58,11 +58,11 @@ country_event = {
 				factor = 0
 				NOT = {
 					OR = {
-						any_country = {
+						any_other_country = {
 
 							has_guaranteed = GRE
 						}
-						any_country = {
+						any_other_country = {
 
 							is_in_faction_with = GRE
 						}
@@ -86,7 +86,7 @@ country_event = {
 		text = greece.2.d_GER_demand
 		trigger = {
 			OR = {
-				713 = { has_state_flag = GER_second_ljubljana_award_GER_demand }
+				731 = { has_state_flag = GER_second_ljubljana_award_GER_demand }
 				185 = { has_state_flag = GER_second_ljubljana_award_GER_demand }
 				47 = { has_state_flag = GER_second_ljubljana_award_GER_demand }
 			}
@@ -137,11 +137,11 @@ country_event = {
 			modifier = {
 				factor = 0
 				OR = {
-					any_country = {
+					any_other_country = {
 
 						has_guaranteed = GRE
 					}
-					any_country = {
+					any_other_country = {
 
 						is_in_faction_with = GRE
 					}
@@ -154,7 +154,9 @@ country_event = {
 			factor = 100	
 		}
 
-		news_event = { id = news.170 hours = 2}
+		hidden_effect = {
+			news_event = { id = news.170 hours = 2}
+		}
 		if = {
 			limit = {
 				has_global_flag = GER_second_ljubljana_award_BUL_184
@@ -211,11 +213,11 @@ country_event = {
 				factor = 0
 				NOT = {
 					OR = {
-						any_country = {
+						any_other_country = {
 
 							has_guaranteed = GRE
 						}
-						any_country = {
+						any_other_country = {
 
 							is_in_faction_with = GRE
 						}
@@ -242,7 +244,7 @@ country_event = {
 	id = greece.3
 	title = greece.3.t
 	desc = greece.3.d
-	picture = GFX_report_event_stalin_02
+	picture = GFX_report_event_generic_sign_treaty2
 	
 	is_triggered_only = yes
 	
@@ -252,11 +254,11 @@ country_event = {
 			modifier = {
 				factor = 0
 				OR = {
-					any_country = {
+					any_other_country = {
 	
 						has_guaranteed = GRE
 					}
-					any_country = {
+					any_other_country = {
 
 						is_in_faction_with = GRE
 					}
@@ -277,11 +279,11 @@ country_event = {
 				factor = 0
 				NOT = {
 					OR = {
-						any_country = {
+						any_other_country = {
 
 							has_guaranteed = GRE
 						}
-						any_country = {
+						any_other_country = {
 
 							is_in_faction_with = GRE
 						}

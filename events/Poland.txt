@@ -40,7 +40,22 @@ country_event = {
 	
 	option = {
 		name = poland.2.a
-		ai_chance = { factor = 30 }
+		ai_chance = { 
+			factor = 30 
+			modifier = {
+				factor = 0
+				OR = {
+					any_other_country = {
+						is_major = yes
+						OR = {
+							is_in_faction_with = POL
+							has_guaranteed = POL
+						}
+					}
+					has_idea = anti_soviet_pact
+				}
+			}
+		}
 		effect_tooltip = {
 			SOV = {
 				if = {
@@ -67,6 +82,14 @@ country_event = {
 					limit = { POL = { owns_state = 89 controls_state = 89 } }
 					transfer_state = 89
 				}
+				if = {
+					limit = { POL = { owns_state = 97 controls_state = 97 } }
+					transfer_state = 97
+				}
+				if = {
+					limit = { POL = { owns_state = 784 controls_state = 784 } }
+					transfer_state = 784
+				}
 			}
 		}
 		SOV = {country_event = { id = poland.3} }
@@ -80,7 +103,7 @@ country_event = {
 				create_wargoal = {
 					type = take_state_focus
 					target = POL
-					generator = { 96 95 94 93 91 89 }
+					generator = { 96 95 94 93 91 89 97 784 }
 				}
 			}
 		}
@@ -153,6 +176,24 @@ country_event = {
 			}
 			transfer_state = 89
 		}
+		if = {
+			limit = { 
+				POL = { 
+					owns_state = 97
+					controls_state = 97 
+				}
+			}
+			transfer_state = 97
+		}
+		if = {
+			limit = { 
+				POL = { 
+					owns_state = 784
+					controls_state = 784 
+				}
+			}
+			transfer_state = 784
+		}
 		hidden_effect = {
 			news_event = { id = news.194 }
 		}
@@ -173,7 +214,7 @@ country_event = {
 		create_wargoal = {
 			type = take_state_focus
 			target = POL
-			generator = { 96 95 94 93 91 89 }
+			generator = { 96 95 94 93 91 89 784 }
 		}
 	}
 }
@@ -223,6 +264,10 @@ country_event = {
 					limit = { POL = { owns_state = 89 controls_state = 89 } }
 					transfer_state = 89
 				}
+				if = {
+					limit = { POL = { owns_state = 784 controls_state = 784 } }
+					transfer_state = 784
+				}
 			}
 		}
 		SOV = { country_event = { id = poland.6 } }
@@ -236,7 +281,7 @@ country_event = {
 				create_wargoal = {
 					type = take_state_focus
 					target = POL
-					generator = { 96 95 94 93 91 89 }
+					generator = { 96 95 94 93 91 89 784 }
 				}
 			}
 		}
@@ -287,6 +332,10 @@ country_event = {
 		if = {
 			limit = { POL = { owns_state = 89 } }
 			transfer_state = 89
+		}
+		if = {
+			limit = { POL = { owns_state = 784 } }
+			transfer_state = 784
 		}
 		hidden_effect = {
 			news_event = { id = news.194 }
@@ -476,14 +525,15 @@ country_event = {
 		has_completed_focus = POL_artillery_modernisation
 		has_government = neutrality
 		has_war_with = ITA
-		any_country = {
-			NOT = { tag = SOV }
-			OR = {
-				tag = POL
-				is_in_faction_with = POL			
+		NOT = { is_in_faction_with = SOV }
+		417 = {
+			controller = {
+				OR = {
+					tag = POL
+					is_in_faction_with = POL			
+				}
+				has_war_with = ITA
 			}
-			has_war_with = ITA
-			controls_state = 417
 		}
 		OR = {
 			divisions_in_state = {
@@ -502,7 +552,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		days = 30
+		days = 1
 	}
 
 	fire_only_once = yes
