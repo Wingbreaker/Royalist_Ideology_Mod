@@ -132,10 +132,10 @@ country_event = {
 
                  create_corps_commander = {
 	             name = "Hans Oster"
-	             gfx = ""
+	             gfx = "GER_Hans_Oster.dds"
 	             traits = {  }
 	             skill = 1
-	             id = 35
+	             id = 1
 	             attack_skill = 1
 	             defense_skill = 1
 	             planning_skill = 1
